@@ -1,7 +1,7 @@
- let limit = 12
-        let page = 2
-        let main_tg = document.querySelector("main")
-    let apiKey = "600c8a0de7134b93b29632e5ae8237b7"
+let limit = 12
+let page = 1
+let main_tg = document.querySelector("main")
+
 
 
 function fetchRecipes(page,limit) {
