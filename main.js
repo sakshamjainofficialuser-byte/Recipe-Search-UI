@@ -26,3 +26,5 @@ function next_page() {
         const id = favBtn.dataset.id
         addtofavourites(id)
     })
+
+    
