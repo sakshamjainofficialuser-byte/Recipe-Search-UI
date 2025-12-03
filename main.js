@@ -19,12 +19,22 @@ function next_page() {
 
 
 
-    main_tg.addEventListener("click",(e) => {
-        let favBtn = e.target.closest(".fav-btn")
-        if (!favBtn) {return};
+main_tg.addEventListener("click",(e) => {
+    let favBtn = e.target.closest(".fav-btn")
+    if (!favBtn) {return};
         console.log("add to favourites")
         const id = favBtn.dataset.id
         addtofavourites(id)
     })
 
     
+
+main_tg.addEventListener('click',(e) => {
+    let detailsCard = e.target.closest(".details-page");
+    if (!detailsCard)   {return};
+        console.log("detailschaiye")
+        const id = detailsCard.dataset.id;
+        window.location.href = `details.html?id=${id}`
+        console.log(id)
+})
+

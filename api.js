@@ -9,3 +9,17 @@ export function fetchRecipes(page,limit) {
     )
     .then(res => res.json())
     };
+
+
+export function fetchAllRecipes() {
+    return fetch(
+        "https://dummyjson.com/recipes?limit=500&skip=0"
+    ).then(response => response.json())
+    .then(data => data.recipes)
+}
+
+export function fetchRecipeById(id) {
+    return fetch(
+        `https://dummyjson.com/recipes/${id}`
+    ).then(resp => resp.json())
+}
