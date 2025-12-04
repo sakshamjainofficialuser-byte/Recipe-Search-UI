@@ -1,4 +1,4 @@
-let limit = 12
+let limit = 6
 let page = 1
 let footerDiv = document.querySelector("#Page-Number")
 

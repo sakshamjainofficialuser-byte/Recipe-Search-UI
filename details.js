@@ -11,11 +11,19 @@ const recipe = await fetchRecipeById(id)
 renderRecipeDetails(recipe)
 let recipeid = recipe.id
 let recipename = recipe.name
-let recipeing = recipe.ingredients 
+
+
 
 recipedetailContainer.addEventListener('click',(e) => {
     let addlistbtn = e.target.closest(".addtolistbtn");
     if (!addlistbtn) {return};
-    console.log("added to favourites")
-    addtoShoppingList(recipeid,recipename,recipeing)
+    let ingId = addlistbtn.dataset.id
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+        if (ingId == i) {
+            let recipeIng = recipe.ingredients[i]
+            addtoShoppingList(recipeid,recipename,recipeIng)
+        }
+    }
 })
+
+

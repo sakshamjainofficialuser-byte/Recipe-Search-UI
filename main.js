@@ -1,10 +1,10 @@
 import { renderData,main_tg } from "./ui.js";
 import { addtofavourites } from "./storage.js";
-// import { searchQuery } from "./ui.js"
+import { searchRecipe } from "./ui.js"
 import { fetchAllRecipes } from "./api.js";
 
 let page = 1;
-let limit = 12;
+let limit = 6;
 
 
 renderData(page,limit)
@@ -44,18 +44,22 @@ main_tg.addEventListener('click',(e) => {
 let searchQuery = document.querySelector("#search-bar")
 let searchBtn = document.querySelector("#search-button")
 
-allrecipes = []
+let allrecipes = []
 allrecipes = fetchAllRecipes().then(data => {
     allrecipes = data
-    searchQuery(allrecipes)
+    console.log(allrecipes)
 })
 
-searchBtn.addEventListener("click",() => {
+let form = document.querySelector(".submit-form")
+form.addEventListener("submit",(e) => {
+    e.preventDefault()
     let query = searchQuery.value.trim().toLowerCase()
-    
-    const filterdRecipe = allrecipes.filter(recipe => {
-        recipe.name.toLowerCase().includes(query)
-
-        searchQuery(filterdRecipe)
-    })
+    console.log(query)
+    console.log(allrecipes)
+    const filterdRecipe = allrecipes.filter((recipe) => {
+        return recipe.name.toLowerCase().includes(query)
 })
+    searchRecipe(filterdRecipe)
+    console.log(filterdRecipe)
+})
+

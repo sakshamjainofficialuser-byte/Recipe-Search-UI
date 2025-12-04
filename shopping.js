@@ -1,26 +1,24 @@
-import { getShoppingList, saveShoppingList } from "./storage.js";
+import { getShoppingList, saveShoppingList, removeFromShoppingList } from "./storage.js";
 import { renderShoppingList } from "./ui.js";
 
 function loadShoppingPage() {
     const list = getShoppingList();
+    console.log(list)
     renderShoppingList(list);
 }
 
 loadShoppingPage();
 
-// REMOVE INGREDIENT EVENT
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
     if (!e.target.classList.contains("remove-shopping")) return;
 
-    const id = e.target.dataset.id;
-    const ingredient = e.target.dataset.ing;
+    const recipeId = e.target.dataset.recipeId
+    const id = e.target.dataset.ingredientId;
 
-    let list = getShoppingList();s
+    console.log(id)
+    let list = getShoppingList();
 
-    // remove item
-    list = list.filter(item => !(item.id == id && item.ingredient === ingredient));
-
-    saveShoppingList(list);
+    removeFromShoppingList(list,recipeId,id)
 
     renderShoppingList(list);
 });
