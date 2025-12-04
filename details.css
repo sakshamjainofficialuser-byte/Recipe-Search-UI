@@ -1,0 +1,129 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #111;
+    color: #fff;
+    height: 70px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* Back Button Style */
+.back-btn {
+    padding: 8px 20px;
+    background: #ff4d4d;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: #e63939;
+    transform: scale(1.05);
+}
+
+
+.recipedetails {
+    max-width: 900px;       
+    margin: 40px auto;    
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-height: 60vh;
+}
+
+
+
+.recipedetails img {
+    width: 100%;
+    height: 400px;        
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Recipe Title */
+.recipedetails h2 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff4d4d; 
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+
+.recipedetails h3 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+
+.recipedetails ul {
+    list-style-type: none; 
+    padding-left: 0;
+}
+
+.recipedetails ul li {
+    background: #fff0f0;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 5px solid #ff4d4d;
+    font-size: 16px;
+}
+
+/* Paragraphs (Instructions) */
+.recipedetails p {
+    font-size: 17px;
+    line-height: 1.8; 
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+
+@media (max-width: 768px) {
+    .recipedetails {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .recipedetails img {
+        height: 250px; 
+    }
+
+    .recipedetails h2 {
+        font-size: 24px;
+    }
+}

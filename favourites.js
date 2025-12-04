@@ -13,4 +13,4 @@ async function loadfavouritesPage() {
     renderFavourites(favRecipes)
 }
 
-loadfavouritesPage()
+loadfavouritesPage() 
