@@ -1,6 +1,8 @@
 import { fetchAllRecipes } from "./api.js";
-import { getFavourites } from "./storage.js";
+import { removeFromFavourites,getFavourites } from "./storage.js";
 import { renderFavourites } from "./ui.js";
+
+let mainContainer = document.querySelector(".container")
 
 async function loadfavouritesPage() {
     let allrecipes = await fetchAllRecipes()
@@ -14,3 +16,14 @@ async function loadfavouritesPage() {
 }
 
 loadfavouritesPage() 
+
+mainContainer.addEventListener('click',(e) => {
+    let btn = e.target.closest(".remove-fav")
+    if (!btn) {return};
+    let id = (btn.dataset.id)
+    console.log("hii")
+
+    removeFromFavourites(id)
+
+    loadfavouritesPage()
+})

@@ -15,18 +15,25 @@ export function addtofavourites(id) {
     saveFavourites(favourites)
 }
 
-export function getshopplist() {
+export function removeFromFavourites(id) {
+    let favs = getFavourites();
+    favs = favs.filter(x => x !== id)
+    console.log(favs)
+    saveFavourites(favs)
+}
+
+export function getShoppingList() {
     return JSON.parse(localStorage.getItem("shoppinglist")) || []
 }
 
-export function savetoShoppingList(list) {
+export function saveShoppingList(list) {
     localStorage.setItem("shoppinglist",JSON.stringify(list))
 }
 export function addtoShoppingList(id,name,ingredients) {
-    let list = getshopplist()
+    let list = getShoppingList()
 
     list.push({id,
         name,
         ingredients})
-    savetoShoppingList(list)
+    saveShoppingList(list)
 }

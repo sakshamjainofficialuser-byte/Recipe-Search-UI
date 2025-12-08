@@ -83,6 +83,26 @@ export function renderRecipeDetails(recipe) {
 }
 
 export function renderShoppingList(list) {
-    const container = document.createElement('div')
-    
+    const container = document.querySelector(".shopping-container");
+    container.innerHTML = "";
+
+    list.forEach(item => {
+        const card = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = item.name;
+
+        const ing = document.createElement("p");
+        ing.textContent = item.ingredient;
+
+        const btn = document.createElement("button");
+        btn.textContent = "Remove";
+        btn.classList.add("remove-shopping");
+        btn.dataset.id = item.id;
+        btn.dataset.ing = item.ingredient;
+
+        card.append(title, ing, btn);
+        container.appendChild(card);
+    });
 }
+
