@@ -13,8 +13,8 @@ export function addtofavourites(id) {
         favourites.push(id)
     }
     saveFavourites(favourites)
-}
-
+}  
+// 
 export function getshopplist() {
     return JSON.parse(localStorage.getItem("shoppinglist")) || []
 }
