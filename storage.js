@@ -68,6 +68,7 @@ export function addtoShoppingList(id,name,newIngredient) {
     saveShoppingList(shoppinglist)
 }
 
+
 export function removeFromShoppingList(list, recipeId, id) {
     console.log(list)
     console

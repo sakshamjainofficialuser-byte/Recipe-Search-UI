@@ -27,3 +27,4 @@ mainContainer.addEventListener('click',(e) => {
 
     loadfavouritesPage()
 })
+

@@ -13,7 +13,6 @@ let recipeid = recipe.id
 let recipename = recipe.name
 
 
-
 recipedetailContainer.addEventListener('click',(e) => {
     let addlistbtn = e.target.closest(".addtolistbtn");
     if (!addlistbtn) {return};

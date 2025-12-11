@@ -183,3 +183,10 @@ footer > div {
     border-radius: 6px;
 }
 
+
+footer button div {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    color: #ffffff;
+}
