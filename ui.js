@@ -1,4 +1,4 @@
-import { fetchRecipes } from "./api.js"
+import { fetchRecipes } from "./api.js";
 
 export let main_tg = document.querySelector("main")
 
@@ -24,7 +24,7 @@ export function renderData(page,limit) {
             btn.dataset.id = response.recipes[i].id;
             btn.textContent = "Add to Favourites";
 
-            p_tag.innerHTML = response.recipes[i].description;
+            p_tag.innerHTML = response.recipes[i].cuisine;
             h3_tag.innerHTML = response.recipes[i].name
             div.append(img,h3_tag,p_tag,btn)
 
@@ -66,6 +66,7 @@ export function renderRecipeDetails(recipe) {
         let addtolistBtn = document.createElement("button")
         ingredient_tag.innerHTML = recipe.ingredients[i]
         addtolistBtn.setAttribute("class","addtolistbtn")
+        addtolistBtn.dataset.id = i
         addtolistBtn.textContent = "Add to list"
         console.log(ingredient_tag)
         ingredient_tag.append(addtolistBtn)
@@ -83,6 +84,54 @@ export function renderRecipeDetails(recipe) {
 }
 
 export function renderShoppingList(list) {
-    const container = document.createElement('div')
-    
-}
+    // console.log(list)
+
+    let listContainer = document.querySelector(".shopping-container")
+    listContainer.innerHTML = ""
+    for (let i = 0; i < list.length; i++) {
+        let ingredientDiv = document.createElement("div")
+        ingredientDiv.classList.add(".ingredients-div")
+        let recipeName = document.createElement("h2")
+        recipeName.textContent = `${list[i].name}`
+        let ul = document.createElement("ul")
+        for (let j = 0; j < list[i].ingredients.length; j++) {
+            let listDiv = document.createElement("div")
+            listDiv.classList.add("list-Div")
+            let ingredientlistele = document.createElement("li")
+            ingredientlistele.innerHTML = `${list[i].ingredients[j].ingredient}`
+            let removeBtn = document.createElement("button")
+            removeBtn.dataset.recipeId = list[i].id
+            removeBtn.dataset.ingredientId = list[i].ingredients[j].id
+            removeBtn.classList.add("remove-shopping")
+            removeBtn.textContent = "Remove"
+
+            listDiv.append(ingredientlistele,removeBtn)
+            ul.append(listDiv)
+            ingredientDiv.append(recipeName,ul)
+        }
+        listContainer.append(ingredientDiv)
+    }};
+
+
+
+export function searchRecipe(filteredRecipe) {
+    main_tg.innerHTML = ""
+    for (let i = 0; i < filteredRecipe.length; i++) {
+        let recipeContainer = document.createElement("div")
+
+        let recipeImg = document.createElement("img")
+        recipeImg.setAttribute("src",filteredRecipe[i].image)
+        let recipeName = document.createElement("h3")
+        recipeName.textContent = `${filteredRecipe[i].name}`
+        let recipeCuisine = document.createElement("p")
+        recipeCuisine.innerHTML = `${filteredRecipe[i].cuisine}`
+        let recipeAddtofavbtn = document.createElement("button")
+        recipeAddtofavbtn.innerHTML = "Add to favourites"
+        recipeAddtofavbtn.classList.add("fav-btn")
+        recipeAddtofavbtn.dataset.id = filteredRecipe[i].id
+
+        recipeContainer.append(recipeImg,recipeName,recipeCuisine,recipeAddtofavbtn)
+        main_tg.append(recipeContainer)
+}}
+
+

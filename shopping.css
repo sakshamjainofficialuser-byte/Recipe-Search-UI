@@ -1,0 +1,84 @@
+/* Because JS adds class ".ingredients-div", we must escape the dot */
+.\.ingredients-div {
+    border-radius: 10px;
+    border: 2px solid #222;
+    background: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+/* Recipe Name */
+.\.ingredients-div h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: #333;
+}
+
+/* UL */
+.\.ingredients-div ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+/* JS creates <div class="list-Div"> inside <ul> */
+.list-Div {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Ingredient text */
+.list-Div li {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Remove button */
+.remove-shopping {
+    background: #e63946;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.remove-shopping:hover {
+    background: #c82333;
+}
+
+.remove-shopping:active {
+    transform: scale(0.95);
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+    color: #222;
+}
+
+/* Main container */
+.shopping-container {
+    max-width: 600px;
+    margin: auto;
+    background: #fefefe;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f7;
+    padding: 20px;
+}
