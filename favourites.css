@@ -29,7 +29,24 @@ header section {
     gap: 15px;
 }
 
+header section button{
+        background-color: #ff4d4d;
+    padding: 4px 10px;
+    background: #ff4d4d;
+    color: white;
 
+    font-weight: bold;
+    border-radius: 25px;
+    transition: 0.3s;
+    font-size: 14px;
+    width: 150px;
+    height: 25px;
+}
+
+header section button a {
+    text-decoration: none;
+     color: white;
+}
 
 /* MAIN CARD CONTAINER */
 main {
