@@ -1,7 +1,3 @@
-let limit = 6
-let page = 1
-let footerDiv = document.querySelector("#Page-Number")
-
 export function fetchRecipes(page,limit) {
     let skip = (page - 1) * limit;
    return fetch(

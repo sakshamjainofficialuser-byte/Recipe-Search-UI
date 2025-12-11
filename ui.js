@@ -39,6 +39,7 @@ export function renderFavourites(favRecipes) {
 
     favRecipes.forEach((r) => {
         let card = document.createElement('div')
+
         let img_tag = document.createElement('img')
         img_tag.setAttribute("src",r.image)
         let h3 = document.createElement("h3")
@@ -60,28 +61,37 @@ export function renderRecipeDetails(recipe) {
     recipedetailContainer.innerHTML = `<img src=${recipe.image}>
 <h2>${recipe.name}<h2>
 <h3>Ingredients</h3>`
-
+    let ingredientList = document.createElement("ul")
     for (let i = 0; i < recipe.ingredients.length; i ++) {
+
+        let ingredientListele = document.createElement("li")
         let ingredient_tag = document.createElement('div')
+        ingredient_tag.classList.add("ingredient")
+        let ingredient_p = document.createElement("p")
         let addtolistBtn = document.createElement("button")
-        ingredient_tag.innerHTML = recipe.ingredients[i]
+        ingredient_p.innerHTML = recipe.ingredients[i]
         addtolistBtn.setAttribute("class","addtolistbtn")
         addtolistBtn.dataset.id = i
         addtolistBtn.textContent = "Add to list"
         console.log(ingredient_tag)
-        ingredient_tag.append(addtolistBtn)
-        recipedetailContainer.append(ingredient_tag)
+        ingredient_tag.append(ingredient_p,addtolistBtn)
+        ingredientListele.append(ingredient_tag)
+        console.log(ingredientListele)
+        ingredientList.append(ingredientListele)
+        
+        recipedetailContainer.append(ingredientList)
     }
     let instruction_heading = document.createElement("h3")
     instruction_heading.innerHTML = "Instruction"
     recipedetailContainer.append(instruction_heading)
+
     for (let j = 0; j < recipe.instructions.length; j ++) {
         let instructions_tag = document.createElement('p')
-        instructions_tag.innerHTML = recipe.instructions[j]
+        instructions_tag.innerHTML = `(${j+1}). ${recipe.instructions[j]}`
         console.log(instructions_tag)
         recipedetailContainer.append(instructions_tag)
     }
-}
+};
 
 export function renderShoppingList(list) {
     // console.log(list)
@@ -118,7 +128,8 @@ export function searchRecipe(filteredRecipe) {
     main_tg.innerHTML = ""
     for (let i = 0; i < filteredRecipe.length; i++) {
         let recipeContainer = document.createElement("div")
-
+        recipeContainer.classList.add("details-page")
+        recipeContainer.dataset.id = filteredRecipe[i].id;
         let recipeImg = document.createElement("img")
         recipeImg.setAttribute("src",filteredRecipe[i].image)
         let recipeName = document.createElement("h3")
